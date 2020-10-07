@@ -1,0 +1,34 @@
+{
+  "name": "pacemaker-backend",
+  "version": "1.0.0",
+  "description": "A backend for the SFWRENG 3K04 pacemaker project.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node -r dotenv/config app.js",
+    "dev": "nodemon --exec \"npm run lint && npm start\"",
+    "lint": "eslint **/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amosyu2000/pacemaker-backend.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amosyu2000/pacemaker-backend/issues"
+  },
+  "homepage": "https://github.com/amosyu2000/pacemaker-backend#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "marked": "^1.2.0",
+    "path": "^0.12.7",
+    "pug": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.10.0",
+    "eslint-plugin-only-warn": "^1.0.2",
+    "nodemon": "^2.0.4"
+  }
+}
