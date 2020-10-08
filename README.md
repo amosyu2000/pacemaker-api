@@ -1,6 +1,6 @@
 # Pacemaker Device Controller-Monitor API
 
-**SFWRENG 3K04 Group L4-2**
+### SFWRENG 3K04 Group L4-2
 
 Group Members
 - Manny Lemos (lemosm1)
@@ -15,7 +15,7 @@ The pacemaker design project is a large portion of the SFWRENG 3K04 Software Dev
 
 ## Documentation
 
-All endpoints respond to POST requests. Make sure each request body contains the necessary parameters with `x-www-form-urlencoded` encoding.
+All endpoints respond to POST requests. Make sure each request body has all the necessary parameters with `x-www-form-urlencoded` encoding.
 
 ### /user/register
 
@@ -24,7 +24,7 @@ All endpoints respond to POST requests. Make sure each request body contains the
 - password `String`
 
 Register a new user.
-<br><br/>
+<br></br>
 
 ### /user/login
 
@@ -33,7 +33,7 @@ Register a new user.
 - password `String`
 
 Login as an existing user.
-<br><br/>
+<br></br>
 
 ### /user/delete
 
@@ -41,4 +41,16 @@ Login as an existing user.
 - id `String`
 
 Delete an existing user.
-<br><br/>
+<br></br>
+
+### /admin/dropall
+
+**Parameters**
+- key `String`
+
+Delete all data from the database.
+<br></br>
+
+## License
+
+Find the license file [here](https://github.com/amosyu2000/pacemaker-backend/blob/main/LICENSE).

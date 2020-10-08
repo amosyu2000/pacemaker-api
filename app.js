@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Endpoints
 app.use('/', routes.home);
+app.use('/admin', routes.admin);
 app.use('/user', routes.user);
 
 app.listen(process.env.PORT || 8080);
