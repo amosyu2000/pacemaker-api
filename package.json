@@ -4,7 +4,7 @@
   "description": "A backend for the SFWRENG 3K04 pacemaker project.",
   "main": "app.js",
   "scripts": {
-    "start": "node -r dotenv/config app.js",
+    "start": "node -r esm -r dotenv/config app.js",
     "dev": "nodemon --exec \"npm run lint && npm start\"",
     "lint": "eslint **/*.js"
   },
@@ -19,12 +19,17 @@
   },
   "homepage": "https://github.com/amosyu2000/pacemaker-backend#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "marked": "^1.2.0",
+    "mongoose": "^5.10.8",
+    "object-hash": "^2.0.3",
     "path": "^0.12.7",
-    "pug": "^3.0.0"
+    "pug": "^3.0.0",
+    "uuid": "^8.3.1"
   },
   "devDependencies": {
     "eslint": "^7.10.0",
