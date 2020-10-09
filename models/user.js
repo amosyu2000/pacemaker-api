@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import hash from 'object-hash';
 import { v4 as uuid } from 'uuid';
-import { Config } from '../models';
+import { Bundle } from '../models';
 
 // Schema for a user
 const schema = new mongoose.Schema({
@@ -30,15 +30,7 @@ const schema = new mongoose.Schema({
 	// Configuration for the schema
 { 
 	versionKey: false, 
-	toObject: { virtuals: true },
 });
-
-// Populate Virtual for Config documents 
-schema.virtual('configs', {
-	ref: 'Config',
-	localField: '_id',
-	foreignField: 'user_id',
-})
 
 // Middleware that runs immediately before a User is saved
 schema.pre('save', function(next) {
@@ -54,8 +46,8 @@ schema.pre('save', function(next) {
 // Middleware that runs immediately after a User is deleted
 schema.post('findOneAndDelete', async function(doc, next) {
 
-	// Deletes all associated Config documents immediately when a User is deleted
-	await Config.deleteMany({ user_id: doc.id });
+	// Deletes all associated Bundle documents immediately when a User is deleted
+	await Bundle.deleteMany({ user_id: doc.id });
 	next();
 })
 

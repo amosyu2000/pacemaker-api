@@ -1,5 +1,5 @@
 import express from 'express';
-import { Config, User } from '../models';
+import { Bundle, User } from '../models';
 import { ensureBodyContains } from '../middlewares';
 import { errorJson, failedJson } from '../utils';
 
@@ -13,8 +13,8 @@ router.post('/dropall', ensureBodyContains('key'), async (req, res) => {
 		if (key === process.env.ADMIN_KEY) {
 			await User.deleteMany();
 			// The deleteMany() function does not fire the User post-delete middleware, 
-			// so I must wipe the Config collection manually
-			await Config.deleteMany();
+			// so I must wipe the Bundle collection manually
+			await Bundle.deleteMany();
 			return res.json({
 				success: true,
 			});

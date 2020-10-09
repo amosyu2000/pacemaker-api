@@ -1,6 +1,6 @@
 import express from 'express';
-import { Config, User } from '../models';
-import { ensureBodyContains } from '../middlewares';
+import { Bundle, User } from '../models';
+import { ensureBodyContains, findUserById } from '../middlewares';
 import { errorJson, failedJson } from '../utils';
 
 export const router = express.Router();
@@ -27,16 +27,16 @@ router.post('/register',
 			}
 
 			// If all is well, proceed with creating a new User
-			// Create a default Config to accompany the User
+			// Create a default Bundle to accompany the User
 			const user = new User({
 				username: username,
 				password: password,
 			});
-			const config = new Config({
+			const bundle = new Bundle({
 				user_id: user.id,
 			});
 			await user.save();
-			await config.save();
+			await bundle.save();
 
 
 			next();
@@ -52,44 +52,21 @@ router.post('/login', returnUserByUsernameAndPassword);
 
 // Delete an existing user
 router.post('/delete', findUserById, async (req, res) => {
-	await User.findByIdAndDelete(res.user.id);
+	await User.findByIdAndDelete(res.locals.id);
 	return res.json({
 		success: true,
 	});
 });
 
-// Middleware to find a user by their ID, stores the document in res.locals
-function findUserById(req, res, next) {
-	ensureBodyContains('id')(req, res, async () => {
-		const id = req.body.id;
-		let user = null;
-
-		try {
-			user = await User.findById(id);
-		} catch (e) {
-			return res.json(errorJson(e));
-		}
-
-		// Fail if the id is invalid/doesn't match an existing user
-		if (user === null) {
-			return res.json(failedJson(
-				`The ID '${id}' does not correspond to a user.`));
-		}
-		else {
-			res.user = user;
-			next();
-		}
-	});
-}
-
 // Generic endpoint that returns all data about a user (or a failedJson)
+// This function shouldn't go in the 'middlewares' module since it's an endpoint
 function returnUserByUsernameAndPassword(req, res) {
 	ensureBodyContains('username', 'password')(req, res, async () => {
 		const username = req.body.username;
 		const password = req.body.password;
 
 		try {
-			const user = await User.findOne({ username_lower: username.toLowerCase() }).populate('configs');
+			const user = await User.findOne({ username_lower: username.toLowerCase() });
 
 			// Check if the user exists
 			if (user === null) {

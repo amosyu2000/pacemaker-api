@@ -1,2 +1,2 @@
+export * from './bundle';
 export * from './user';
-export * from './config';

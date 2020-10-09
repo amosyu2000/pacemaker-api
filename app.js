@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
+import { bodyParser, defaultResponse } from './middlewares';
 import * as routes from './routes';
 
 // Create a new express application
@@ -21,11 +21,15 @@ app.set('json spaces', 2);
 app.use(express.static('static'))
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser);
 
 // Endpoints
 app.use('/', routes.home);
 app.use('/admin', routes.admin);
+app.use('/bundle', routes.bundle);
 app.use('/user', routes.user);
+
+// Default response
+app.use(defaultResponse);
 
 app.listen(process.env.PORT || 8080);
