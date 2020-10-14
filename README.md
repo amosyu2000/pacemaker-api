@@ -20,6 +20,7 @@ All endpoints respond to POST requests. Make sure each request body has all the 
 ### /user/register
 
 **Parameters**
+- licenseKey `String`
 - username `String`
 - password `String`
 
@@ -29,6 +30,7 @@ Register a new User. Responds with the User document that was just registered.
 ### /user/login
 
 **Parameters**
+- licenseKey `String`
 - username `String`
 - password `String`
 
@@ -38,6 +40,7 @@ Login as an existing User. Responds with the document of the User that logged in
 ### /user/delete
 
 **Parameters**
+- licenseKey `String`
 - id `String`
 
 Delete an existing User. Responds with a confirmation message.
@@ -46,6 +49,7 @@ Delete an existing User. Responds with a confirmation message.
 ### /bundle/addnew
 
 **Parameters**
+- licenseKey `String`
 - id `String`
 - *p_pacingState* `String`
 - *p_pacingMode* `String`
@@ -62,6 +66,7 @@ Create a new Bundle. The "id" parameter should be the id of the associated User.
 ### /bundle/getall
 
 **Parameters**
+- licenseKey `String`
 - id `String`
 
 Get all bundles associated to a User. Responds with an array of Bundle documents, sorted by newest date.
@@ -70,6 +75,7 @@ Get all bundles associated to a User. Responds with an array of Bundle documents
 ### /bundle/getlatest
 
 **Parameters**
+- licenseKey `String`
 - id `String`
 
 Responds with the most recent Bundle of a User.
@@ -78,7 +84,7 @@ Responds with the most recent Bundle of a User.
 ### /admin/dropall
 
 **Parameters**
-- key `String`
+- adminKey `String`
 
 Delete all data from the database. Responds with a confirmation message.
 <br></br>

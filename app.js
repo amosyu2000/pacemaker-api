@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { bodyParser, defaultResponse } from './middlewares';
+import { bodyParser, checkLicenseKey, defaultResponse } from './middlewares';
 import * as routes from './routes';
 
 // Create a new express application
@@ -20,12 +20,11 @@ app.set('json spaces', 2);
 // Directly serve files from the 'static' directory
 app.use(express.static('static'))
 
-// Middleware
-app.use(bodyParser);
-
 // Endpoints
 app.use('/', routes.home);
+app.use(bodyParser);
 app.use('/admin', routes.admin);
+app.use(checkLicenseKey);
 app.use('/bundle', routes.bundle);
 app.use('/user', routes.user);
 

@@ -6,8 +6,8 @@ import { errorJson, failedJson } from '../utils';
 export const router = express.Router();
 
 // Deletes all documents from the all collections
-router.post('/dropall', ensureBodyContains('key'), async (req, res) => {
-	const key = req.body.key;
+router.post('/dropall', ensureBodyContains('adminKey'), async (req, res) => {
+	const key = req.body.adminKey;
 	// Check that the key is correct
 	try {
 		if (key === process.env.ADMIN_KEY) {

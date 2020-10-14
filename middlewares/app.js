@@ -4,9 +4,24 @@ import { failedJson } from '../utils';
 // Middleware that converts the encoded request body into usable JSON
 export const bodyParser = npmBodyParser.urlencoded({ extended: false });
 
+// Middleware that checks if the request contains a valid license key
+export function checkLicenseKey(req, res, next) {
+	ensureBodyContains('licenseKey')(req, res, () => {
+		const licenseKey = process.env.LICENSE_KEY;
+		if (req.body.licenseKey !== licenseKey) {
+			return res.json(failedJson(
+				'Invalid license key.'
+			));
+		}
+		else {
+			next();
+		}
+	});
+}
+
 // Response for non-existent routes
 export function defaultResponse(req, res) {
-	res.json(failedJson(`The requested endpoint at '${req.path}' could not be found.`));
+	return res.json(failedJson(`The requested endpoint at '${req.path}' could not be found.`));
 }
 
 // Middleware that checks the request body for the desired keys
