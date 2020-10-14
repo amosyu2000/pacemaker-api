@@ -29,7 +29,8 @@ export function ensureBodyContains() {
 	return (req, res, next) => {
 		let missingParameters = [];
 		for (const parameter of arguments) {
-			if (req.body[parameter] === undefined) {
+			const value = req.body[parameter];
+			if (value === undefined || value === null || value === '') {
 				missingParameters.push(parameter);
 			}
 		}
