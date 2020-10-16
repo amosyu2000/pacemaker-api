@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { bodyParser, checkLicenseKey, defaultResponse } from './middlewares';
+import { bodyParser, checkLicenseKey, cors, defaultResponse } from './middlewares';
 import * as routes from './routes';
 
 // Create a new express application
@@ -19,6 +19,9 @@ app.set('json spaces', 2);
 
 // Directly serve files from the 'static' directory
 app.use(express.static('static'))
+
+// CORS
+app.use(cors());
 
 // Endpoints
 app.use('/', routes.home);

@@ -14,7 +14,7 @@ router.post('/register',
 
 		try {
 			// Check that adding another user will not exceed the database's limit
-			const maximumUsers = 10;
+			const maximumUsers = 50;
 			if ((await User.find()).length >= maximumUsers) {
 				return res.json(failedJson(
 					`The database has already reached its maximum capacity of ${maximumUsers} users.`));

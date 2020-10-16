@@ -1,8 +1,4 @@
-import npmBodyParser from 'body-parser';
 import { failedJson } from '../utils';
-
-// Middleware that converts the encoded request body into usable JSON
-export const bodyParser = npmBodyParser.urlencoded({ extended: false });
 
 // Middleware that checks if the request contains a valid license key
 export function checkLicenseKey(req, res, next) {
