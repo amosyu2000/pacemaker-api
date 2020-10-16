@@ -1,14 +1,18 @@
 import mongoose from 'mongoose';
 import { v4 as uuid } from 'uuid';
+import { randomFruit } from '../utils';
 
 // Schema for storing the programmable parameter data of a user
 const schema = new mongoose.Schema({
+	user_id: {
+		type: String,
+	},
+	name: {
+		type: String,
+	},
 	created_at: {
 		type: Date,
 		default: Date.now,
-	},
-	user_id: {
-		type: String
 	},
 	_id: {
 		type: String,
@@ -50,6 +54,16 @@ const schema = new mongoose.Schema({
 }, 
 { 
 	versionKey: false, 
+});
+
+// Middleware that runs immediately before a User is saved
+schema.pre('save', async function(next) {
+	// Generate a random name for the bundle
+	const fruit = randomFruit();
+	const bundlesByUserId = await Bundle.find({ user_id: this.user_id });
+	const index = bundlesByUserId.length;
+	this.name = `${fruit}-${index}`;
+	next();
 });
 
 export const Bundle = mongoose.model('Bundle', schema);

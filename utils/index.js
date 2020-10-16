@@ -21,3 +21,12 @@ export function errorJson(error) {
 	// Other errors
 	return failedJson(error.message);
 }
+
+export function randomFruit() {
+	const fruits = [
+		'apple', 'banana', 'cherry', 'mango', 'orange', 'peach', 'lemon', 'lime',
+		'grape', 'kiwi', 'pear', 'plum', 'strawberry', 'blueberry', 'watermelon', 
+		'tomato', 'starfruit', 'pumpkin', 'broccoli', 'celery', 'potato', 
+	];
+	return fruits[Math.floor(Math.random() * fruits.length)];
+}

@@ -5,9 +5,9 @@
 Group Members
 - [Amos Yu](https://github.com/amosyu2000) (yua25)
 - [Andy Pham](https://github.com/aonday) (phama8)
-- Manny Lemos (lemosm1)
-- [Fady Zekry Hanna](https://github.com/fzhanna) (zekryhf)
 - [Aaron Li](https://github.com/aaronhsli) (lia79)
+- [Fady Zekry Hanna](https://github.com/fzhanna) (zekryhf)
+- Manny Lemos (lemosm1)
 
 ## About
 
