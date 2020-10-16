@@ -51,14 +51,34 @@ Delete an existing User. Responds with a confirmation message.
 **Parameters**
 - licenseKey `String`
 - id `String`
-- *p_pacingState* `String`
-- *p_pacingMode* `String`
-- *p_hysteresis* `Boolean`
-- *p_hysteresisInterval* `Number`
-- *p_lowrateInterval* `Number`
-- *p_vPaceAmp* `Number`
-- *p_vPaceWidth* `Number`
-- *p_VRP* `Number`
+- *MODE* `Number` `1`
+- *LOWER_RATE_LIMIT* `Number` `60`
+- *VOLTAGE* `Number` `3.3`
+- *UPPER_RATE_LIMIT* `Number` `120`
+- *MAX_SENS* `Number` `0`
+- *AV_DELAY_FIXED* `Number` `0`
+- *AV_DELAY_SENSED* `Number` `0`
+- *ATR_AMP* `Number` `3.5`
+- *VENT_AMP* `Number` `3.5`
+- *ATR_PW* `Number` `10`
+- *VENT_PW* `Number` `10`
+- *ATR_SENS* `Number` `2.4`
+- *VENT_SENS* `Number` `2.4`
+- *VRP* `Number` `320`
+- *ARP* `Number` `250`
+- *PVARP* `Number` `250`
+- *PVARP_EXT* `Number` `0`
+- *HYSTERESIS* `Boolean` `false`
+- *RATE_SMOOTH* `Number` `0`
+- *ATR_DUR* `Number` `0`
+- *ATR_FALLBACK_MODE* `Number` `0`
+- *ATR_FALLBACK_TIME* `Number` `0`
+- *ACTIVITY_THRESH* `Number` `0`
+- *VENT_THRESH* `Number` `2.2`
+- *ATR_THRESH* `Number` `1.8`
+- *REACT_TIME* `Number` `0`
+- *RESP_FACTOR* `Number` `0`
+- *RCVR_TIME* `Number` `0`
 
 Create a new Bundle. The "id" parameter should be the id of the associated User. Responds with the newly created Bundle document.
 <br></br>
@@ -70,15 +90,6 @@ Create a new Bundle. The "id" parameter should be the id of the associated User.
 - id `String`
 
 Get all bundles associated to a User. Responds with an array of Bundle documents, sorted by newest date.
-<br></br>
-
-### /bundle/getlatest
-
-**Parameters**
-- licenseKey `String`
-- id `String`
-
-Responds with the most recent Bundle of a User.
 <br></br>
 
 ### /admin/dropall
