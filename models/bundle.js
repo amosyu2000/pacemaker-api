@@ -25,6 +25,7 @@ const schema = new mongoose.Schema({
 	UPPER_RATE_LIMIT: { type: Number, default: 120 },
 	MAX_SENS: { type: Number, default: 0 },
 	AV_DELAY_FIXED: { type: Number, default: 0 },
+  AV_DELAY_DYNA: { type: Number, default: 0 },
 	AV_DELAY_SENSED: { type: Number, default: 0 },
 	ATR_AMP: { type: Number, default: 3.5 },
 	VENT_AMP: { type: Number, default: 3.5 },

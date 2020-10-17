@@ -3,11 +3,11 @@
 ### SFWRENG 3K04 Lab 4 Team 2
 
 Group Members
+- [Aaron Li](https://github.com/aaronhsli) (lia79)
+- [Manny Lemos](https://github.com/MannyLemos) (lemosm1)
+- [Fady Zekry Hanna](https://github.com/fzhanna) (zekryhf)
 - [Amos Yu](https://github.com/amosyu2000) (yua25)
 - [Andy Pham](https://github.com/aonday) (phama8)
-- [Aaron Li](https://github.com/aaronhsli) (lia79)
-- [Fady Zekry Hanna](https://github.com/fzhanna) (zekryhf)
-- Manny Lemos (lemosm1)
 
 ## About
 
@@ -51,36 +51,37 @@ Delete an existing User. Responds with a confirmation message.
 **Parameters**
 - licenseKey `String`
 - id `String`
-- *MODE* `Number` `1`
-- *LOWER_RATE_LIMIT* `Number` `60`
-- *VOLTAGE* `Number` `3.3`
-- *UPPER_RATE_LIMIT* `Number` `120`
-- *MAX_SENS* `Number` `0`
-- *AV_DELAY_FIXED* `Number` `0`
-- *AV_DELAY_SENSED* `Number` `0`
-- *ATR_AMP* `Number` `3.5`
-- *VENT_AMP* `Number` `3.5`
-- *ATR_PW* `Number` `10`
-- *VENT_PW* `Number` `10`
-- *ATR_SENS* `Number` `2.4`
-- *VENT_SENS* `Number` `2.4`
-- *VRP* `Number` `320`
-- *ARP* `Number` `250`
-- *PVARP* `Number` `250`
-- *PVARP_EXT* `Number` `0`
-- *HYSTERESIS* `Boolean` `false`
-- *RATE_SMOOTH* `Number` `0`
-- *ATR_DUR* `Number` `0`
-- *ATR_FALLBACK_MODE* `Number` `0`
-- *ATR_FALLBACK_TIME* `Number` `0`
-- *ACTIVITY_THRESH* `Number` `0`
-- *VENT_THRESH* `Number` `2.2`
-- *ATR_THRESH* `Number` `1.8`
-- *REACT_TIME* `Number` `0`
-- *RESP_FACTOR* `Number` `0`
-- *RCVR_TIME* `Number` `0`
+- *MODE* `Number`
+- *LOWER_RATE_LIMIT* `Number`
+- *VOLTAGE* `Number`
+- *UPPER_RATE_LIMIT* `Number`
+- *MAX_SENS* `Number`
+- *AV_DELAY_FIXED* `Number`
+- *AV_DELAY_DYNA* `Number`
+- *AV_DELAY_SENSED* `Number`
+- *ATR_AMP* `Number`
+- *VENT_AMP* `Number`
+- *ATR_PW* `Number`
+- *VENT_PW* `Number`
+- *ATR_SENS* `Number`
+- *VENT_SENS* `Number`
+- *VRP* `Number`
+- *ARP* `Number`
+- *PVARP* `Number`
+- *PVARP_EXT* `Number`
+- *HYSTERESIS* `Boolean`
+- *RATE_SMOOTH* `Number`
+- *ATR_DUR* `Number`
+- *ATR_FALLBACK_MODE* `Number`
+- *ATR_FALLBACK_TIME* `Number`
+- *ACTIVITY_THRESH* `Number`
+- *VENT_THRESH* `Number`
+- *ATR_THRESH* `Number`
+- *REACT_TIME* `Number`
+- *RESP_FACTOR* `Number`
+- *RCVR_TIME* `Number`
 
-Create a new Bundle. The "id" parameter should be the id of the associated User. Responds with the newly created Bundle document.
+Create a new Bundle. The "id" parameter should be the id of the associated User. Programmable parameters are defined [here](https://github.com/amosyu2000/pacemaker-api/blob/main/models/bundle.js). Responds with the newly created Bundle document.
 <br></br>
 
 ### /bundle/getall
