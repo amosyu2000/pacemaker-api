@@ -69,7 +69,7 @@ Delete an existing User. Responds with a confirmation message.
 - *ARP* `Number`
 - *PVARP* `Number`
 - *PVARP_EXT* `Number`
-- *HYSTERESIS* `Boolean`
+- *HYSTERESIS* `Number`
 - *RATE_SMOOTH* `Number`
 - *ATR_DUR* `Number`
 - *ATR_FALLBACK_MODE* `Number`
