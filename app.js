@@ -8,8 +8,8 @@ const app = express();
 
 // Connect to the database
 mongoose.connect(process.env.DB_ADDRESS, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 })
 
 // Engine converts pug files into HTML before serving

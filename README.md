@@ -55,7 +55,7 @@ Delete an existing User. Responds with a confirmation message.
 - *LOWER_RATE_LIMIT* `Number`
 - *VOLTAGE* `Number`
 - *UPPER_RATE_LIMIT* `Number`
-- *MAX_SENS* `Number`
+- *MAX_SENSE* `Number`
 - *AV_DELAY_FIXED* `Number`
 - *AV_DELAY_DYNA* `Number`
 - *AV_DELAY_SENSED* `Number`

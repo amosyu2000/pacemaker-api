@@ -7,8 +7,8 @@ export const router = express.Router();
 
 // Renders the README as html for the home page
 router.get('/', (req, res) => {
-	res.render(
-		'index',
-		{contents : marked(fs.readFileSync(path.resolve('./README.md'), 'utf8'))}
-	);
+  res.render(
+    'index',
+    {contents : marked(fs.readFileSync(path.resolve('./README.md'), 'utf8'))}
+  );
 });
