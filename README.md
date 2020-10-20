@@ -52,8 +52,8 @@ Delete an existing User. Responds with a confirmation message.
 - licenseKey `String`
 - id `String`
 - *MODE* `Number`
-- *LOWER_RATE_LIMIT* `Number`
 - *VOLTAGE* `Number`
+- *LOWER_RATE_LIMIT* `Number`
 - *UPPER_RATE_LIMIT* `Number`
 - *MAX_SENSE* `Number`
 - *AV_DELAY_FIXED* `Number`
@@ -74,9 +74,9 @@ Delete an existing User. Responds with a confirmation message.
 - *ATR_DUR* `Number`
 - *ATR_FALLBACK_MODE* `Number`
 - *ATR_FALLBACK_TIME* `Number`
-- *ACTIVITY_THRESH* `Number`
 - *VENT_THRESH* `Number`
 - *ATR_THRESH* `Number`
+- *ACTIVITY_THRESH* `Number`
 - *REACT_TIME* `Number`
 - *RESP_FACTOR* `Number`
 - *RCVR_TIME* `Number`

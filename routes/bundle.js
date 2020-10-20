@@ -11,10 +11,14 @@ router.post('/addnew', findUserById, async (req, res) => {
   // Any missing parameter will be assigned its default value
   let bundle = null;
   try {
-    bundle = new Bundle({
+    // Assign the associated user_id to the new bundle
+    // Also, we want to ignore the _id and created_at fields if they were passed in
+    Object.assign(req.body, {
       user_id: res.locals.id,
-      ...req.body,
+      _id: undefined, 
+      created_at: undefined,
     });
+    bundle = new Bundle(req.body);
     await bundle.save();
   } catch(e) {
     return res.json(errorJson(e));

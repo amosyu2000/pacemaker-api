@@ -13,6 +13,7 @@ const schema = new mongoose.Schema({
   created_at: {
     type: Date,
     default: Date.now,
+    immutable: true,
   },
   _id: {
     type: String,
@@ -20,8 +21,8 @@ const schema = new mongoose.Schema({
   },
   // Pacemaker parameters
   MODE:             { type: Number, default: 1 },
-  LOWER_RATE_LIMIT: { type: Number, default: 60 },
   VOLTAGE:          { type: Number, default: 3.3 },
+  LOWER_RATE_LIMIT: { type: Number, default: 60 },
   UPPER_RATE_LIMIT: { type: Number, default: 120 },
   MAX_SENSE:        { type: Number, default: 0 },
   AV_DELAY_FIXED:   { type: Number, default: 0 },
@@ -42,9 +43,9 @@ const schema = new mongoose.Schema({
   ATR_DUR:          { type: Number, default: 0 },
   ATR_FALLBACK_MODE:{ type: Number, default: 0 },
   ATR_FALLBACK_TIME:{ type: Number, default: 0 },
-  ACTIVITY_THRESH:  { type: Number, default: 0 },
   VENT_THRESH:      { type: Number, default: 2.2 },
   ATR_THRESH:       { type: Number, default: 1.8 },
+  ACTIVITY_THRESH:  { type: Number, default: 0 },
   REACT_TIME:       { type: Number, default: 0 },
   RESP_FACTOR:      { type: Number, default: 0 },
   RCVR_TIME:        { type: Number, default: 0 },
