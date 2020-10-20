@@ -21,9 +21,10 @@ router.post('/register',
       }
 
       // Check that the username is not taken
-      if ((await User.find({ username_lower: username.toLowerCase() })).length !== 0) {
+      const existingUser = await User.findOne({ username_lower: username.toLowerCase() });
+      if (existingUser !== null) {
         return res.json(failedJson(
-          `A user with the username '${username}' already exists.`));
+          `A user with the username '${existingUser.username}' already exists.`));
       }
 
       // If all is well, proceed with creating a new User
