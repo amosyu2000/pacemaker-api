@@ -93,12 +93,21 @@ Create a new Bundle. The "id" parameter should be the id of the associated User.
 Get all bundles associated to a User. Responds with an array of Bundle documents, sorted by newest date.
 <br></br>
 
-### /admin/dropall
+### /admin/deleteall
 
 **Parameters**
 - adminKey `String`
 
 Delete all data from the database. Responds with a confirmation message.
+<br></br>
+
+### /admin/deleteuser
+
+**Parameters**
+- adminKey `String`
+- username `String`
+
+Delete a single user from the database. Responds with a confirmation message.
 <br></br>
 
 ## License
