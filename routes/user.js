@@ -14,7 +14,7 @@ router.post('/register',
 
     try {
       // Check that adding another user will not exceed the database's limit
-      const maximumUsers = 50;
+      const maximumUsers = 10;
       if ((await User.find()).length >= maximumUsers) {
         return res.json(failedJson(
           `The database has already reached its maximum capacity of ${maximumUsers} users.`));
@@ -72,12 +72,12 @@ function returnUserByUsernameAndPassword(req, res) {
       // Check if the user exists
       if (user === null) {
         return res.json(failedJson(
-          `A user with the username '${username}' does not exist.`));
+          `Incorrect username or password.`));
       }
       // Check if the password is correct
       if (!user.authenticate(password)) {
         return res.json(failedJson(
-          `Incorrect password for the user '${user.get('username')}'.`));
+          `Incorrect username or password.`));
       }
       // If all is well, send the user data over
       
