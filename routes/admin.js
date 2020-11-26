@@ -1,6 +1,6 @@
 import express from 'express';
 import { Bundle, User } from '../models';
-import { ensureBodyContains } from '../middlewares';
+import { ensureBodyContains, findUserById } from '../middlewares';
 import { errorJson, failedJson } from '../utils';
 
 export const router = express.Router();
@@ -33,12 +33,8 @@ router.post('/deleteall', async (req, res) => {
 });
 
 // Delete an existing user
-router.post('/deleteuser', async (req, res) => {
-  try {
-    await User.findOneAndDelete({ username_lower: req.body.username.toLowerCase() });
-  } catch (e) {
-    return res.json(errorJson(e));
-  }
+router.post('/deleteuser', findUserById, async (req, res) => {
+  await User.findByIdAndDelete(res.locals.id);
   return res.json({
     success: true,
   });

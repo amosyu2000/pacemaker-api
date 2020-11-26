@@ -5,9 +5,9 @@
 Group Members
 - [Aaron Li](https://github.com/aaronhsli) (lia79)
 - [Manny Lemos](https://github.com/MannyLemos) (lemosm1)
-- [Fady Zekry Hanna](https://github.com/fzhanna) (zekryhf)
 - [Amos Yu](https://github.com/amosyu2000) (yua25)
 - [Andy Pham](https://github.com/aonday) (phama8)
+- [Fady Zekry Hanna](https://github.com/fzhanna) (zekryhf)
 
 ## About
 
@@ -37,15 +37,6 @@ Register a new User. Responds with the User document that was just registered.
 Login as an existing User. Responds with the document of the User that logged in.
 <br></br>
 
-### /user/delete
-
-**Parameters**
-- licenseKey `String`
-- id `String`
-
-Delete an existing User. Responds with a confirmation message.
-<br></br>
-
 ### /bundle/addnew
 
 **Parameters**
@@ -72,7 +63,7 @@ Delete an existing User. Responds with a confirmation message.
 - *VENT_THRESH* `Number`
 - *VENT_SENSE* `Number`
 
-Create a new Bundle. The "id" parameter should be the id of the associated User. Programmable parameters are defined [here](https://github.com/amosyu2000/pacemaker-api/blob/main/models/bundle.js). Responds with the newly created Bundle document.
+Create a new Bundle. The "id" parameter should be the id of the associated User. Programmable parameters are defined [here](https://github.com/amosyu2000/pacemaker-api/blob/main/models/bundle.js) and [here](https://github.com/amosyu2000/pacemaker-dcm/blob/main/src/utils/mode.js). Responds with the newly created Bundle document.
 <br></br>
 
 ### /bundle/getall
@@ -84,21 +75,21 @@ Create a new Bundle. The "id" parameter should be the id of the associated User.
 Get all bundles associated to a User. Responds with an array of Bundle documents, sorted by newest date.
 <br></br>
 
+### /admin/deleteuser
+
+**Parameters**
+- adminKey `String`
+- id `String`
+
+Delete a single User from the database. Responds with a confirmation message.
+<br></br>
+
 ### /admin/deleteall
 
 **Parameters**
 - adminKey `String`
 
 Delete all data from the database. Responds with a confirmation message.
-<br></br>
-
-### /admin/deleteuser
-
-**Parameters**
-- adminKey `String`
-- username `String`
-
-Delete a single user from the database. Responds with a confirmation message.
 <br></br>
 
 ## License

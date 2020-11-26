@@ -1,6 +1,6 @@
 import express from 'express';
 import { Bundle, User } from '../models';
-import { ensureBodyContains, findUserById } from '../middlewares';
+import { ensureBodyContains } from '../middlewares';
 import { errorJson, failedJson } from '../utils';
 
 export const router = express.Router();
@@ -50,14 +50,6 @@ router.post('/register',
 
 // Log in as an existing user
 router.post('/login', returnUserByUsernameAndPassword);
-
-// Delete an existing user
-router.post('/delete', findUserById, async (req, res) => {
-  await User.findByIdAndDelete(res.locals.id);
-  return res.json({
-    success: true,
-  });
-});
 
 // Generic endpoint that returns all data about a user (or a failedJson)
 // This function shouldn't go in the 'middlewares' module since it's an endpoint

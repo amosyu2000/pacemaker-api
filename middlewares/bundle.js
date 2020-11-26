@@ -10,7 +10,7 @@ export function findBundlesByUserId(req, res, next) {
 
     try {
       // Sorts the bundles by newest date
-      bundles = await Bundle.find({ user_id: id }).sort({ created_at: 1 });
+      bundles = await Bundle.find({ user_id: id }).sort({ created_at: -1 });
     } catch (e) {
       return res.json(errorJson(e));
     }
