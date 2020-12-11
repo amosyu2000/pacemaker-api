@@ -12,7 +12,7 @@ router.use((req, res, next) => {
       next();
     }
     else {
-      return res.json(failedJson('Invalid admin key.'));
+      return res.json(failedJson('Invalid administrator key. Please contact your chief physician.'));
     }
   });
 });
